@@ -21,7 +21,6 @@ import com.vkarmaedu.vkarma.data.UserRepo
 import com.vkarmaedu.vkarma.viewModel.ChatViewModel
 import com.vkarmaedu.vkarma.viewModel.ChatViewModelFactory
 import kotlinx.android.synthetic.main.fragment_chat.view.*
-import java.util.*
 
 class ChatFragment : Fragment() {
 
@@ -83,8 +82,9 @@ class ChatFragment : Fragment() {
                 Message(
                     UserRepo.name!!,
                     root.chat_message.text.toString(),
-                    Date(System.currentTimeMillis()),
-                    null
+                    System.currentTimeMillis(),
+                    null,
+                    channel
                 )
             )
         }

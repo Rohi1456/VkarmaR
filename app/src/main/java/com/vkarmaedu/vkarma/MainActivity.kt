@@ -3,6 +3,7 @@ package com.vkarmaedu.vkarma
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.vkarmaedu.vkarma.fragment.ChooseFragment
+import com.vkarmaedu.vkarma.utility.popBackStack
 import com.vkarmaedu.vkarma.utility.replaceFragment
 
 class MainActivity : AppCompatActivity() {
@@ -12,5 +13,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         replaceFragment(this, ChooseFragment())
+    }
+
+    override fun onBackPressed() {
+        if (supportFragmentManager.backStackEntryCount > 1)
+            popBackStack(this)
+        else
+            super.onBackPressed()
     }
 }

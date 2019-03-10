@@ -18,10 +18,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import java.util.*
 import kotlin.coroutines.CoroutineContext
 
-class ChatViewModel(application: Application, channel : String) : AndroidViewModel(application) {
+class ChatViewModel(application: Application, val channel : String) : AndroidViewModel(application) {
     val allMessages : LiveData<List<Message>>
     private val messageRepo : MessageRepository
     private val storageRef = FirebaseStorage.getInstance().getReference("chat_attachments")
@@ -55,7 +54,7 @@ class ChatViewModel(application: Application, channel : String) : AndroidViewMod
 
     init {
         val dao = MessageDatabase.getDatabase(application).messageDao()
-        messageRepo = MessageRepository(dao)
+        messageRepo = MessageRepository(dao, channel)
         allMessages = messageRepo.allMessages
         messageRef.addChildEventListener(listener)
     }
@@ -82,7 +81,7 @@ class ChatViewModel(application: Application, channel : String) : AndroidViewMod
         }.addOnCompleteListener {
             if (it.isSuccessful){
                 val downloadUri = it.result.toString()
-                insertFirebase(Message(UserRepo.name!!, "", Date(System.currentTimeMillis()), downloadUri))
+                insertFirebase(Message(UserRepo.name!!, "", System.currentTimeMillis(), downloadUri, channel))
                 Log.d(TAG, "success : $downloadUri")
             }
             else{

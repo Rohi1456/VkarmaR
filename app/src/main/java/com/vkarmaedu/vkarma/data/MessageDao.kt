@@ -14,6 +14,6 @@ interface MessageDao {
     @Query("DELETE from messageTable")
     fun deleteAll()
 
-    @Query("SELECT * from messageTable")
-    fun getAllMessages() : LiveData<List<Message>>
+    @Query("SELECT * from messageTable WHERE channelName = :value")
+    fun getAllMessages(value : String) : LiveData<List<Message>>
 }

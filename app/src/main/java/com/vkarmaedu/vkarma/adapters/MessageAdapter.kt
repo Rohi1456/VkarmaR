@@ -61,23 +61,23 @@ class MessageAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             VIEW_TYPE_MESSAGE_SENT -> {
                 holder as ViewHolderSend
                 holder.text.text = message.text
-                holder.time.text = timeFormat.format(message.timeStamp?.time)
+                holder.time.text = timeFormat.format(message.timeStamp)
             }
             VIEW_TYPE_MESSAGE_RECEIVED -> {
                 holder as ViewHolderRecieve
                 holder.userName.text = message.senderName
                 holder.text.text = message.text
-                holder.time.text = timeFormat.format(message.timeStamp?.time)
+                holder.time.text = timeFormat.format(message.timeStamp)
             }
             VIEW_TYPE_IMAGE_MESSAGE_RECEIVED -> {
                 holder as ViewHolderImageRecieve
                 holder.userName.text = message.senderName
-                holder.time.text = timeFormat.format(message.timeStamp?.time)
+                holder.time.text = timeFormat.format(message.timeStamp)
                 Glide.with(holder.itemView).load(message.attachment).into(holder.attachment)
             }
             VIEW_TYPE_IMAGE_MESSAGE_SENT -> {
                 holder as ViewHolderImageSend
-                holder.time.text = timeFormat.format(message.timeStamp?.time)
+                holder.time.text = timeFormat.format(message.timeStamp)
                 Glide.with(holder.itemView).load(message.attachment).into(holder.attachment)
             }
         }

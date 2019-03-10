@@ -5,14 +5,11 @@
              android:layout_height="match_parent"
              tools:context=".fragment.TeacherMyClassFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="22sp"
             android:textColor="#3d3f43"
-            android:letterSpacing="0.05"
             android:lineSpacingExtra="4sp"
             android:text="My Class"
             android:layout_marginTop="40dp"
