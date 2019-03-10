@@ -81,7 +81,7 @@ class ChatViewModel(application: Application, val channel : String) : AndroidVie
         }.addOnCompleteListener {
             if (it.isSuccessful){
                 val downloadUri = it.result.toString()
-                insertFirebase(Message(UserRepo.name!!, "", System.currentTimeMillis(), downloadUri, channel))
+                insertFirebase(Message(UserRepo.name, "", System.currentTimeMillis(), downloadUri, channel))
                 Log.d(TAG, "success : $downloadUri")
             }
             else{

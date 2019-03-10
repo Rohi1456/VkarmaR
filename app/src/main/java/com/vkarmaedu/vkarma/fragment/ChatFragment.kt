@@ -34,6 +34,7 @@ class ChatFragment : Fragment() {
 
         }
     }
+
     private val messageAdapter = MessageAdapter()
     private lateinit var channel: String
 
@@ -80,13 +81,14 @@ class ChatFragment : Fragment() {
         root.chat_send.setOnClickListener {
             viewModel?.insertFirebase(
                 Message(
-                    UserRepo.name!!,
+                    UserRepo.name,
                     root.chat_message.text.toString(),
                     System.currentTimeMillis(),
                     null,
                     channel
                 )
             )
+            root.chat_message.text.clear()
         }
         root.attach.setOnClickListener {
             val intent = Intent(Intent.ACTION_GET_CONTENT)

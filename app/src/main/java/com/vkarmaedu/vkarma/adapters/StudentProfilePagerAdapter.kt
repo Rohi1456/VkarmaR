@@ -10,7 +10,7 @@ class StudentProfilePagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm)
 
     override fun getItem(position: Int): Fragment {
         return when(position){
-            1 -> ProfileDetailFragment()
+            0 -> ProfileDetailFragment()
             else -> ProfileAttenFragment()
         }
     }
@@ -19,7 +19,7 @@ class StudentProfilePagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm)
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when(position){
-            1 -> "DETAILS"
+            0 -> "DETAILS"
             else -> "Attendance"
         }
     }

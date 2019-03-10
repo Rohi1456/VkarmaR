@@ -25,7 +25,6 @@ class StudentProfileFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_student_profile, container, false)
         activity?.let {
-            it.actionBar?.hide()
             root.viewpager.adapter = StudentProfilePagerAdapter(it.supportFragmentManager)
         }
 

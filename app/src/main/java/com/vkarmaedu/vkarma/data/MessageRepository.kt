@@ -2,7 +2,7 @@ package com.vkarmaedu.vkarma.data
 
 import androidx.annotation.WorkerThread
 
-class MessageRepository(private val messageDao: MessageDao, private val channel :String){
+class MessageRepository(private val messageDao: MessageDao, channel :String){
     val allMessages = messageDao.getAllMessages(channel)
 
     @WorkerThread
