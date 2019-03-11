@@ -7,12 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.vkarmaedu.vkarma.R
-import com.vkarmaedu.vkarma.data.UserRepo
-import com.vkarmaedu.vkarma.utility.replaceFragment
 import com.vkarmaedu.vkarma.utility.replaceFragmentAddToBackStack
 import com.vkarmaedu.vkarma.utility.showSnack
 import kotlinx.android.synthetic.main.fragment_student.view.*
@@ -20,23 +20,7 @@ import kotlinx.android.synthetic.main.student_content.view.*
 
 class StudentFragment : Fragment() {
 
-    private val TAG = javaClass.name
     private val auth by lazy { FirebaseAuth.getInstance() }
-    private lateinit var authStateListener : FirebaseAuth.AuthStateListener
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        authStateListener = FirebaseAuth.AuthStateListener {
-            val currentUser = it.currentUser
-            if (currentUser == null){
-                activity?.let { it1 -> replaceFragmentAddToBackStack(it1, LoginFragment()) }
-            }
-            else{
-                currentUser.displayName?.let { it1 -> UserRepo.setCred(it1, currentUser.uid) }
-            }
-        }
-        activity?.let { it1 -> replaceFragment(it1, R.id.student_container, StudentProfileFragment()) }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,34 +35,16 @@ class StudentFragment : Fragment() {
         toggle.syncState()
 
         root.drawer_navigation.setNavigationItemSelectedListener (onDrawerItemSelectedListener)
-        root.student_bottom_nav.setOnNavigationItemSelectedListener (onBottomNavigationItemSelectedListener)
+
+        val navController = Navigation.findNavController(root.findViewById(R.id.student_container))
+        root.findViewById<BottomNavigationView>(R.id.student_bottom_nav)
+            .setupWithNavController(navController)
 
         root.notification.setOnClickListener {
             activity?.let { it1 -> replaceFragmentAddToBackStack(it1, NotificationFragment()) }
         }
+
         return root
-    }
-
-
-    override fun onResume() {
-        super.onResume()
-        auth.addAuthStateListener (authStateListener)
-    }
-
-    override fun onPause() {
-        super.onPause()
-        auth.removeAuthStateListener (authStateListener)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.notification -> {
-                this.view?.let { showSnack(it, "notify") }
-                activity?.let { replaceFragmentAddToBackStack(it, NotificationFragment()) }
-                true
-            }
-            else -> false
-        }
     }
 
     private val onDrawerItemSelectedListener = object : NavigationView.OnNavigationItemSelectedListener{
@@ -95,39 +61,5 @@ class StudentFragment : Fragment() {
                 else -> false
             }
         }
-
-    }
-
-    private val onBottomNavigationItemSelectedListener = object : BottomNavigationView.OnNavigationItemSelectedListener {
-        override fun onNavigationItemSelected(item: MenuItem): Boolean {
-            return when (item.itemId) {
-                R.id.homeworkFragment -> {
-                    activity?.let { it1 -> replaceFragment(it1, R.id.student_container, StudentHomeworkFragment()) }
-                    true
-                }
-                R.id.resultsFragment -> {
-                    activity?.let { it1 -> replaceFragment(it1, R.id.student_container, ResultsFragment()) }
-                    true
-                }
-                R.id.studentProfileFragment -> {
-                    activity?.let { it1 -> replaceFragment(it1, R.id.student_container, StudentProfileFragment()) }
-                    true
-                }
-                R.id.remarksFragment -> {
-                    activity?.let { it1 -> replaceFragment(it1, R.id.student_container, RemarksFragment()) }
-                    true
-                }
-                R.id.chatFragment -> {
-                    activity?.let { it1 -> replaceFragment(it1, R.id.student_container, ChatChannelFragment()) }
-                    true
-                }
-                else -> false
-            }
-        }
-    }
-
-    companion object {
-        private const val ARG_PARAM1 = "param1"
-        private const val ARG_PARAM2 = "param2"
     }
 }

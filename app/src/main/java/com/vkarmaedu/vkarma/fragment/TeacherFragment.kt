@@ -5,44 +5,57 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 import com.vkarmaedu.vkarma.R
-import com.vkarmaedu.vkarma.utility.replaceFragment
-import kotlinx.android.synthetic.main.fragment_teacher.view.*
+import com.vkarmaedu.vkarma.utility.replaceFragmentAddToBackStack
+import com.vkarmaedu.vkarma.utility.showSnack
+import kotlinx.android.synthetic.main.fragment_student.view.*
+import kotlinx.android.synthetic.main.student_content.view.*
 
 class TeacherFragment : Fragment() {
+
+    private val auth by lazy { FirebaseAuth.getInstance() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_teacher, container, false)
-        root.teacher_bottom_nav.setOnNavigationItemSelectedListener (onNavigationItemSelectListener)
+
+        val toggle = ActionBarDrawerToggle(
+            activity, root.drawer_layout, root.toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
+        )
+        root.drawer_layout.addDrawerListener(toggle)
+        toggle.syncState()
+
+        root.drawer_navigation.setNavigationItemSelectedListener (onDrawerItemSelectedListener)
+
+        val navController = Navigation.findNavController(root.findViewById(R.id.teacher_container))
+        root.findViewById<BottomNavigationView>(R.id.teacher_bottom_nav)
+            .setupWithNavController(navController)
+
+        root.notification.setOnClickListener {
+            activity?.let { it1 -> replaceFragmentAddToBackStack(it1, NotificationFragment()) }
+        }
+
         return root
     }
 
-    private val onNavigationItemSelectListener = object: BottomNavigationView.OnNavigationItemSelectedListener{
+    private val onDrawerItemSelectedListener = object : NavigationView.OnNavigationItemSelectedListener{
         override fun onNavigationItemSelected(item: MenuItem): Boolean {
             return when(item.itemId){
-                R.id.homework -> {
-                    activity?.let { replaceFragment(it, R.id.teacher_container, TeacherHomeworkFragment()) }
+                R.id.fee_payment -> {
+                    showSnack(this@TeacherFragment.requireView(), "fee")
                     true
                 }
-                R.id.attendance ->{
-                    activity?.let { replaceFragment(it, R.id.teacher_container, AttendanceFragment()) }
-                    true
-                }
-                R.id.profile -> {
-//                    activity?.let { replaceFragment(it, R.id.teacher_container, Profi()) }
-                    false
-                }
-                R.id.resultUpload -> {
-                    activity?.let { replaceFragment(it, R.id.teacher_container, ResultUploadFragment()) }
-                    true
-                }
-                R.id.chat -> {
-                    activity?.let { replaceFragment(it, R.id.teacher_container, ChatChannelFragment()) }
+                R.id.logout -> {
+                    auth.signOut()
                     true
                 }
                 else -> false

@@ -5,6 +5,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/windowBg</item>
+        <item name="android:fontFamily">@font/montserrat</item>
     </style>
 
     <style name="AppTheme.Launcher" >

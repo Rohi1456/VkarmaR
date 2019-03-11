@@ -9,11 +9,10 @@ import com.vkarmaedu.vkarma.R
 import com.vkarmaedu.vkarma.dataModels.Homework
 import com.vkarmaedu.vkarma.utility.dateFormat
 import kotlinx.android.synthetic.main.list_homework_student.view.*
-import java.util.*
 
 class HomeworkStudentAdapter(private val listener: OnItemClickListener) : RecyclerView.Adapter<ViewHolder>() {
     private var list : List<Homework> = emptyList()
-    private var date = Date()
+    private val today = dateFormat.format(System.currentTimeMillis())
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolderHomework(LayoutInflater.from(parent.context).inflate(R.layout.list_homework_student, parent, false))
@@ -25,14 +24,15 @@ class HomeworkStudentAdapter(private val listener: OnItemClickListener) : Recycl
         val homework = list[position]
         holder as ViewHolderHomework
 
-        if (homework.date != date){
+        val homeworkDate = dateFormat.format(homework.date)
+        if (homeworkDate != today){
             holder.date.visibility = View.VISIBLE
-            holder.date.text = dateFormat.format(homework.date)
-            date = homework.date
+            holder.date.text = homeworkDate
         }
 
         holder.subject.text = homework.subName
         holder.content.text = homework.text
+        holder.itemView.setOnClickListener{ listener.onItemClickListener(homework) }
     }
 
     class ViewHolderHomework(view: View) : ViewHolder(view) {
@@ -47,6 +47,6 @@ class HomeworkStudentAdapter(private val listener: OnItemClickListener) : Recycl
     }
 
     public interface OnItemClickListener{
-        fun onItemClickListener(position: Int)
+        fun onItemClickListener(homework: Homework)
     }
 }

@@ -39,7 +39,7 @@ class HomeworkTeacherAdapter(private val listener: OnItemClickListener) : Recycl
 
         holder.batch.text = homework.batch
         holder.text.text = homework.text
-        holder.time.text = getTimeDiff(homework.date.time)
+        holder.time.text = getTimeDiff(homework.date)
 
         if (homework.attachment == null) holder.attachment.visibility == GONE
         else holder.attachment.setOnClickListener { listener.onItemClickListener(position) }

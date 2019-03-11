@@ -29,8 +29,8 @@
                 android:id="@+id/standard"
                 android:text="XII"
                 style="@style/round_bg_text"
-                android:layout_width="54dp"
-                android:layout_height="54dp"/>
+                android:layout_width="48dp"
+                android:layout_height="48dp"/>
 
     </LinearLayout>
 
@@ -57,8 +57,8 @@
                 android:id="@+id/section"
                 android:text="A"
                 style="@style/round_bg_text"
-                android:layout_width="54dp"
-                android:layout_height="54dp"/>
+                android:layout_width="48dp"
+                android:layout_height="48dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -83,8 +83,8 @@
                 android:id="@+id/age"
                 android:text="18"
                 style="@style/round_bg_text"
-                android:layout_width="54dp"
-                android:layout_height="54dp"/>
+                android:layout_width="48dp"
+                android:layout_height="48dp"/>
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
