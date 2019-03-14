@@ -26,7 +26,7 @@
             app:tabGravity="center"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="72dp"
-            android:id="@+id/tabLayout3"
+            android:id="@+id/tabLayout"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="72dp"
@@ -34,26 +34,31 @@
 
         <com.google.android.material.tabs.TabItem
                 android:text="MON"
+                android:id="@+id/day1"                                  
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"/>
 
         <com.google.android.material.tabs.TabItem
                 android:text="TUE"
+                android:id="@+id/day2" 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
         <com.google.android.material.tabs.TabItem
                 android:text="WED"
+                android:id="@+id/day3"                                   
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"/>
 
         <com.google.android.material.tabs.TabItem
                 android:text="THU"
+                android:id="@+id/day4"                                   
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
         <com.google.android.material.tabs.TabItem
                 android:text="FRI"
+                 android:id="@+id/day5"                                   
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
