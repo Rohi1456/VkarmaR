@@ -41,8 +41,9 @@ class HomeworkTeacherAdapter(private val listener: OnItemClickListener) : Recycl
         holder.text.text = homework.text
         holder.time.text = getTimeDiff(homework.date)
 
-        if (homework.attachment == null) holder.attachment.visibility == GONE
-        else holder.attachment.setOnClickListener { listener.onItemClickListener(position) }
+        if (homework.attachment.isNullOrEmpty()) holder.attachment.visibility == GONE
+
+        holder.itemView.setOnClickListener { listener.onItemClickListener(position) }
     }
 
     class MyViewHolder(val item : View) : RecyclerView.ViewHolder(item) {

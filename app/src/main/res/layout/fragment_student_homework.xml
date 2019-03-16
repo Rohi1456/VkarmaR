@@ -30,7 +30,8 @@
     <TextView
             android:id="@+id/today"
             android:text="Today"
-            android:textAppearance="@style/Base.TextAppearance.MaterialComponents.Headline6"
+            android:textColor="@color/black"
+            android:textSize="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"

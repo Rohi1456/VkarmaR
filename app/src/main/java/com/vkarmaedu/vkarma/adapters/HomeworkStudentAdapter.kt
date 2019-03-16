@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.list_homework_student.view.*
 
 class HomeworkStudentAdapter(private val listener: OnItemClickListener) : RecyclerView.Adapter<ViewHolder>() {
     private var list : List<Homework> = emptyList()
-    private val today = dateFormat.format(System.currentTimeMillis())
+    private var today = dateFormat.format(System.currentTimeMillis())
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolderHomework(LayoutInflater.from(parent.context).inflate(R.layout.list_homework_student, parent, false))
@@ -28,7 +28,9 @@ class HomeworkStudentAdapter(private val listener: OnItemClickListener) : Recycl
         if (homeworkDate != today){
             holder.date.visibility = View.VISIBLE
             holder.date.text = homeworkDate
+            today = homeworkDate
         }
+        else holder.date.visibility = View.GONE
 
         holder.subject.text = homework.subName
         holder.content.text = homework.text

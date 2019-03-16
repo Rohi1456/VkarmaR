@@ -11,7 +11,6 @@ import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.functions.FirebaseFunctions
 import com.google.firebase.functions.FirebaseFunctionsException
 import com.vkarmaedu.vkarma.R
-import com.vkarmaedu.vkarma.utility.TokenBroadcastReceiver
 import com.vkarmaedu.vkarma.utility.hideKeyboard
 import com.vkarmaedu.vkarma.utility.popBackStack
 import com.vkarmaedu.vkarma.utility.showSnack
@@ -20,7 +19,6 @@ import kotlinx.android.synthetic.main.fragment_login.view.*
 class LoginFragment : Fragment() {
 
     private val auth: FirebaseAuth by lazy { FirebaseAuth.getInstance() }
-    private lateinit var tokenReceiver: TokenBroadcastReceiver
     private val functions: FirebaseFunctions by lazy { FirebaseFunctions.getInstance() }
 
     override fun onCreateView(

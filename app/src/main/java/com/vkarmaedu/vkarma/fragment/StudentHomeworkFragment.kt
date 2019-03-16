@@ -32,7 +32,7 @@ class StudentHomeworkFragment : Fragment() , HomeworkStudentAdapter.OnItemClickL
 
         root.homework_recycler_view.apply {
             adapter = myAdapter
-            layoutManager = LinearLayoutManager(this@StudentHomeworkFragment.context)
+            layoutManager = LinearLayoutManager(context)
         }
         root.today.visibility = View.GONE
 
@@ -57,7 +57,7 @@ class StudentHomeworkFragment : Fragment() , HomeworkStudentAdapter.OnItemClickL
 
     private fun visibilityNoHomework(bool : Boolean){
         homework_recycler_view.visibility = if (bool) View.GONE else View.VISIBLE
-        homework_recycler_view.visibility = if (bool) View.VISIBLE else View.GONE
+        no_homework.visibility = if (bool) View.VISIBLE else View.GONE
     }
 
     override fun onItemClickListener(homework: Homework) {

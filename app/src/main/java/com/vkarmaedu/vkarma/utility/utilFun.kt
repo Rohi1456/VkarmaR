@@ -74,5 +74,5 @@ fun getTimeDiff(thatTime : Long) : String{
     }
 }
 
-val dateFormat = SimpleDateFormat("dd mmm yyyy", Locale.getDefault())
+val dateFormat = SimpleDateFormat("dd-MMM-yy", Locale.getDefault())
 val timeFormat = SimpleDateFormat("hh:mm a", Locale.getDefault())

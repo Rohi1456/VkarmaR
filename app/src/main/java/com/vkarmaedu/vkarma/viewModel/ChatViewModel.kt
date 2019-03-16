@@ -25,7 +25,7 @@ class ChatViewModel(application: Application, val channel : String) : AndroidVie
     val allMessages : LiveData<List<Message>>
     private val messageRepo : MessageRepository
     private val storageRef = FirebaseStorage.getInstance().getReference("chat_attachments")
-    private val messageRef = FirebaseDatabase.getInstance().getReference("Institute/1/$batch/messages/$channel")
+    private val messageRef = FirebaseDatabase.getInstance().getReference("institute/1/$batch/messages/$channel")
     private val listener = object : ChildEventListener{
         override fun onCancelled(p0: DatabaseError) {
 

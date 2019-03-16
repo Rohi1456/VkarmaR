@@ -6,7 +6,7 @@ import com.google.firebase.database.IgnoreExtraProperties
 
 @IgnoreExtraProperties
 data class Homework (val subName : String, val teachName : String, val batch: String,
-                     val date : Long, val text : String, val attachment : String? ) : Parcelable{
+                     val date : Long, val text : String, var attachment : String? ) : Parcelable{
 
     constructor(parcel: Parcel) : this(
         parcel.readString() ?: "",

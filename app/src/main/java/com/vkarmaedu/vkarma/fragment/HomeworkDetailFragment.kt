@@ -30,6 +30,8 @@ class HomeworkDetailFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_homework_detail, container, false)
 
+        if (homework?.attachment == "") root.attachment.visibility = View.GONE
+
         homework?.let {
             root.subject.text = it.subName
             root.teacher.text = it.teachName

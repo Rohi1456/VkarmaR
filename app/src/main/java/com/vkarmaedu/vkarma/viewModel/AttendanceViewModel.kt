@@ -22,12 +22,11 @@ class AttendanceViewModel : ViewModel() {
     private val today = dateFormat.format(Date())
 
     private val attendanceRef by lazy {
-        FirebaseDatabase.getInstance().getReference("Institute/1/Attendance/$today")
+        FirebaseDatabase.getInstance().getReference("institute/1/Attendance/$today")
     }
     private val studentRef: DatabaseReference by lazy {
-        FirebaseDatabase.getInstance().getReference("Institute/1/Students")
+        FirebaseDatabase.getInstance().getReference("institute/1/Students")
     }
-
 
     fun getListOfAllStudents() {
         studentRef.addListenerForSingleValueEvent(object : ValueEventListener {

@@ -9,27 +9,27 @@
     <fragment
             android:id="@+id/studentProfileFragment"
             android:name="com.vkarmaedu.vkarma.fragment.StudentProfileFragment"
-            android:label="fragment_student_profile"
+            android:label="Student Profile"
             tools:layout="@layout/fragment_student_profile"/>
     <fragment
             android:id="@+id/homeworkFragment"
             android:name="com.vkarmaedu.vkarma.fragment.StudentHomeworkFragment"
-            android:label="fragment_homework"
+            android:label="Homework"
             tools:layout="@layout/fragment_student_homework"/>
     <fragment
             android:id="@+id/remarksFragment"
             android:name="com.vkarmaedu.vkarma.fragment.RemarksFragment"
-            android:label="fragment_remarks"
+            android:label="Remarks"
             tools:layout="@layout/fragment_remarks"/>
     <fragment
             android:id="@+id/resultsFragment"
-            android:name="com.vkarmaedu.vkarma.fragment.ResultsFragment"
-            android:label="fragment_results"
-            tools:layout="@layout/fragment_results"/>
+            android:name="com.vkarmaedu.vkarma.fragment.StudentResultsFragment"
+            android:label="Results"
+            tools:layout="@layout/fragment_student_results"/>
     <fragment
             android:id="@+id/chatFragment"
             android:name="com.vkarmaedu.vkarma.fragment.ChatChannelFragment"
-            android:label="fragment_chat_list"
+            android:label="Chat"
             tools:layout="@layout/fragment_chat_channel"/>
 
 

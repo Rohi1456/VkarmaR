@@ -1,6 +1,7 @@
 package com.vkarmaedu.vkarma.viewModel
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import com.vkarmaedu.vkarma.data.Notification
@@ -29,6 +30,7 @@ class NotificationViewmodel(application: Application) : AndroidViewModel(applica
     override fun onCleared() {
         super.onCleared()
         parentJob.cancel()
+        Log.d("oncleared", "oncleared" + TAG)
     }
 
     fun delete(notification: Notification){

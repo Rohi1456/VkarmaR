@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                   xmlns:tools="http://schemas.android.com/tools"
-                                                   android:layout_width="match_parent"
-                                                   android:layout_height="match_parent"
-                                                   tools:context=".teacher_classes">
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <Spinner
             android:id="@+id/class_spinner"
@@ -34,31 +34,31 @@
 
         <com.google.android.material.tabs.TabItem
                 android:text="MON"
-                android:id="@+id/day1"                                  
+                android:id="@+id/day1"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"/>
 
         <com.google.android.material.tabs.TabItem
                 android:text="TUE"
-                android:id="@+id/day2" 
+                android:id="@+id/day2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
         <com.google.android.material.tabs.TabItem
                 android:text="WED"
-                android:id="@+id/day3"                                   
+                android:id="@+id/day3"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"/>
 
         <com.google.android.material.tabs.TabItem
                 android:text="THU"
-                android:id="@+id/day4"                                   
+                android:id="@+id/day4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
         <com.google.android.material.tabs.TabItem
                 android:text="FRI"
-                 android:id="@+id/day5"                                   
+                android:id="@+id/day5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 

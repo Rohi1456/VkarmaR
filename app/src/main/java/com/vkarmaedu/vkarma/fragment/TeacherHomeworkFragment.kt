@@ -1,7 +1,5 @@
 package com.vkarmaedu.vkarma.fragment
 
-import android.app.AlertDialog
-import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -19,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_teacher_homework.view.*
 class TeacherHomeworkFragment : Fragment(), HomeworkTeacherAdapter.OnItemClickListener {
 
     private lateinit var myAdapter : HomeworkTeacherAdapter
-    private val viewmodel by lazy { ViewModelProviders.of(this).get(TeacherHomeworkViewModel::class.java) }
+    private val viewModel by lazy { ViewModelProviders.of(this).get(TeacherHomeworkViewModel::class.java) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,24 +33,17 @@ class TeacherHomeworkFragment : Fragment(), HomeworkTeacherAdapter.OnItemClickLi
         }
 
         root.new_homework.setOnClickListener{
-            val alertDialog = AlertDialog.Builder(activity).setView(R.layout.new_homework_dialog)
-                .setPositiveButton("Submit", object : DialogInterface.OnClickListener {
-                    override fun onClick(dialog: DialogInterface?, which: Int) {
-
-                    }
-                })
-            alertDialog.create()
-            alertDialog.show()
+            replaceFragmentAddToBackStack(activity, NewHomeworkFragment())
         }
 
-        viewmodel.homeworkLiveData.observe(this, Observer {
+        viewModel.homeworkLiveData.observe(this, Observer {
             myAdapter.changeData(it)
         })
         return root
     }
 
     override fun onItemClickListener(position: Int) {
-        activity?.let { replaceFragmentAddToBackStack(it, HomeworkDetailFragment()) }
+        replaceFragmentAddToBackStack(activity, HomeworkDetailFragment())
     }
 
     companion object {

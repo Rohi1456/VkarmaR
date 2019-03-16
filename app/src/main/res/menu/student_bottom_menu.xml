@@ -6,12 +6,12 @@
     <item
             android:id="@+id/homeworkFragment"
             android:title="Homework"
-            android:icon="@drawable/ic_person"/>
+            android:icon="@drawable/ic_storage"/>
 
     <item
             android:id="@+id/resultsFragment"
             android:title="Result"
-            android:icon="@drawable/ic_person"/>
+            android:icon="@drawable/ic_graph"/>
 
     <item
             android:id="@+id/studentProfileFragment"
@@ -21,11 +21,11 @@
     <item
             android:id="@+id/remarksFragment"
             android:title="Remark"
-            android:icon="@drawable/ic_person"/>
+            android:icon="@drawable/ic_content_paste"/>
 
     <item
             android:id="@+id/chatFragment"
             android:title="Chat"
-            android:icon="@drawable/ic_person"/>
+            android:icon="@drawable/ic_message"/>
 
 </menu>
