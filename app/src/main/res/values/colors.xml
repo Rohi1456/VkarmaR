@@ -11,4 +11,5 @@
     <color name="black">#000000</color>
     <color name="gray">#A2A2A2</color>
     <color name="grayLight">#ececec</color>
+    <color name="purple">#6200ee</color>
 </resources>

@@ -3,6 +3,8 @@ package com.vkarmaedu.vkarma.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.vkarmaedu.vkarma.R
@@ -32,15 +34,29 @@ class HomeworkStudentAdapter(private val listener: OnItemClickListener) : Recycl
         }
         else holder.date.visibility = View.GONE
 
+        holder.icon.setImageResource(when(homework.subName){
+            "Physics" -> R.drawable.ic_atomic
+            "" -> R.drawable.ic_flask
+            else -> R.drawable.ic_calculator
+         })
+
+//        holder.sideView.setBackgroundColor(when(homework.subName){
+//            "Physics" -> R.color.red
+//            "Mathematics" -> R.color.blue
+//            else -> R.color.green
+//        })
+
         holder.subject.text = homework.subName
         holder.content.text = homework.text
         holder.itemView.setOnClickListener{ listener.onItemClickListener(homework) }
     }
 
     class ViewHolderHomework(view: View) : ViewHolder(view) {
-        val date =  view.date
-        val subject = view.subject_name
-        val content = view.content
+        val date : TextView =  view.date
+        val subject : TextView = view.subject_name
+        val content : TextView = view.content
+        val sideView : View = view.side_view
+        val icon : ImageView = view.subject_icon
     }
 
     fun changeData(list : List<Homework>){
@@ -48,7 +64,7 @@ class HomeworkStudentAdapter(private val listener: OnItemClickListener) : Recycl
         notifyDataSetChanged()
     }
 
-    public interface OnItemClickListener{
+    interface OnItemClickListener{
         fun onItemClickListener(homework: Homework)
     }
 }

@@ -24,13 +24,18 @@ class HomeworkDetailFragment : Fragment() {
     private val storageRef by lazy { FirebaseStorage.getInstance().getReference("homework_attachment") }
     private val downloadManager : DownloadManager by lazy { activity?.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager}
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_homework_detail, container, false)
 
-        if (homework?.attachment == "") root.attachment.visibility = View.GONE
+        if (homework?.attachment.isNullOrEmpty()) root.attachment.visibility = View.GONE
 
         homework?.let {
             root.subject.text = it.subName
