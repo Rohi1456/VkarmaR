@@ -7,7 +7,7 @@
 
     <fragment
             android:id="@+id/attendance"
-            android:name="com.vkarmaedu.vkarma.fragment.TakeAttendanceFragment"
+            android:name="com.vkarmaedu.vkarma.fragment.TeacherAttendanceFragment"
             android:label="fragment_take_attendance"
             tools:layout="@layout/fragment_take_attendance"/>
 
