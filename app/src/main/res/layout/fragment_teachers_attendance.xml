@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:tools="http://schemas.android.com/tools"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_marginBottom="@dimen/_50sdp">
+    <TextView
+            android:id="@+id/teacher_classTVID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Class XII-A"
+            android:textSize="@dimen/_20sdp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+    />
+    <TextView
+            android:id="@+id/dateTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="15th Feb 2019"
+            android:layout_below="@id/teacher_classTVID"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+    />
+    <TextView
+            android:id="@+id/selectAttendanceTVID"
+            android:layout_below="@id/dateTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_14sdp"
+            android:text="Select Attendance"
+            android:textColor="@color/black"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+    />
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@id/selectAttendanceTVID"
+            android:layout_below="@id/dateTV"
+            android:gravity="right"
+            android:textSize="@dimen/_14sdp"
+            android:drawablePadding="@dimen/_5sdp"
+            android:drawableEnd="@drawable/ic_verified_dark"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:text="Select All"
+    />
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/attendanceRV"
+            android:layout_below="@id/selectAttendanceTVID"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/list_teacher_attendeance"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+    />
+
+</RelativeLayout>
