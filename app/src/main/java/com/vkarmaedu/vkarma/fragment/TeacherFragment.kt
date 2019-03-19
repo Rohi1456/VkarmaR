@@ -44,6 +44,9 @@ class TeacherFragment : Fragment() {
             activity?.let { it1 -> replaceFragmentAddToBackStack(it1, NotificationFragment()) }
         }
 
+        navController.addOnDestinationChangedListener{_, destination,_->
+            root.toolbar.title = destination.label
+        }
         return root
     }
 

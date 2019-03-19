@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.vkarmaedu.vkarma.R
 import com.vkarmaedu.vkarma.adapters.HomeworkStudentAdapter
 import com.vkarmaedu.vkarma.dataModels.Homework
+import com.vkarmaedu.vkarma.utility.HOMEwORK_KEY
 import com.vkarmaedu.vkarma.utility.dateFormat
 import com.vkarmaedu.vkarma.utility.replaceFragmentAddToBackStack
 import com.vkarmaedu.vkarma.viewModel.StudentHomeworkViewModel
@@ -65,9 +66,5 @@ class StudentHomeworkFragment : Fragment() , HomeworkStudentAdapter.OnItemClickL
         val bundle = Bundle()
         bundle.putParcelable(HOMEwORK_KEY, homework)
         replaceFragmentAddToBackStack(activity, fragment)
-    }
-
-    companion object {
-        private const val HOMEwORK_KEY = "homework_key"
     }
 }

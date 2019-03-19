@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.vkarmaedu.vkarma.R
 import com.vkarmaedu.vkarma.adapters.StudentProfilePagerAdapter
+import com.vkarmaedu.vkarma.adapters.TeacherStudentPageAdapter
 import com.vkarmaedu.vkarma.viewModel.StudentProfileViewModel
 import kotlinx.android.synthetic.main.fragment_student_profile.view.*
 
@@ -24,9 +25,14 @@ class StudentProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_student_profile, container, false)
-        activity?.let {
-            root.viewpager.adapter = StudentProfilePagerAdapter(it.supportFragmentManager)
+
+        if (arguments != null){
+            root.viewpager.adapter = activity?.supportFragmentManager?.let { TeacherStudentPageAdapter(it) }
         }
+        else{
+            root.viewpager.adapter = activity?.supportFragmentManager?.let { StudentProfilePagerAdapter(it) }
+        }
+
 
         root.tabLayout.setupWithViewPager(root.viewpager)
         return root

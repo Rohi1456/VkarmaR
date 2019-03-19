@@ -33,10 +33,11 @@ class StudentResultAdapter(private val listener :OnItemClickListener) : Recycler
 
     fun updateData(list: List<Results>){
         this.list = list
+        notifyDataSetChanged()
     }
 
-    public interface OnItemClickListener{
-        public fun onItemClickListener(result : Results)
+    interface OnItemClickListener{
+        fun onItemClickListener(result : Results)
     }
 
     class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){

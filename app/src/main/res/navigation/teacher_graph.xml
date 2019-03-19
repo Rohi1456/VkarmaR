@@ -7,19 +7,28 @@
 
     <fragment
             android:id="@+id/attendance"
-            android:name="com.vkarmaedu.vkarma.fragment.TakeAttendanceFragment"
-            android:label="fragment_take_attendance"
-            tools:layout="@layout/fragment_take_attendance"/>
-
+            android:name="com.vkarmaedu.vkarma.fragment.AttendanceFragment"
+            android:label="Attendance"
+            tools:layout="@layout/fragment_attendance"/>
     <fragment
             android:id="@+id/homework"
             android:name="com.vkarmaedu.vkarma.fragment.TeacherHomeworkFragment"
-            android:label="fragment_homework"
+            android:label="Homework"
             tools:layout="@layout/fragment_teacher_homework"/>
     <fragment
-            android:id="@+id/resultUpload"
-            android:name="com.vkarmaedu.vkarma.fragment.ResultUploadFragment"
-            android:label="fragment_result_upload"
-            tools:layout="@layout/fragment_result_upload"/>
+            android:id="@+id/myClass"
+            android:name="com.vkarmaedu.vkarma.fragment.MyClassFragment"
+            android:label="My Class"
+            tools:layout="@layout/fragment_my_class"/>
+    <fragment
+            android:id="@+id/teacherProfile"
+            android:name="com.vkarmaedu.vkarma.fragment.TeacherProfileFragment"
+            android:label="Profile"
+            tools:layout="@layout/fragment_teacher_profile"/>
+    <fragment
+            android:id="@+id/chat"
+            android:name="com.vkarmaedu.vkarma.fragment.ChatChannelFragment"
+            android:label="Vkarma Chat"
+            tools:layout="@layout/fragment_chat_channel"/>
 
 </navigation>

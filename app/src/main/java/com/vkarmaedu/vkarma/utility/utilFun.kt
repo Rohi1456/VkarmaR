@@ -48,7 +48,8 @@ fun replaceFragmentAddToBackStack(fragmentActivity: FragmentActivity?, fragment:
         .commit()
 }
 
-fun popBackStack(fragmentActivity: FragmentActivity){
+fun popBackStack(fragmentActivity: FragmentActivity?){
+    if (fragmentActivity == null) return
     fragmentActivity.supportFragmentManager.popBackStack()
 }
 
