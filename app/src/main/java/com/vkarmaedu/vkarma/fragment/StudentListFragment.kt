@@ -36,7 +36,7 @@ class StudentListFragment : Fragment(), StudentListAdapter.OnItemClickListener {
     }
 
     override fun onItemClickListener(student: Student) {
-        val fragment = StudentProfileFragment()
+        val fragment = TeacherMyStudentFragment()
         val bundle = Bundle()
         bundle.putParcelable(STUDENT_KEY, student)
         fragment.arguments = bundle

@@ -2,15 +2,20 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collapsingToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:context=".fragment.StudentProfileFragment"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:layout_constraintTop_toTopOf="parent"
+                app:toolbarId="@id/toolbar">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraint"
@@ -24,12 +29,12 @@
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         android:layout_marginTop="24dp"
                         android:layout_marginStart="24dp"
                         android:layout_marginBottom="64dp"
-                        android:id="@+id/profile_pic"/>
+                        android:id="@+id/profile_pic"
+                        app:layout_constraintBottom_toBottomOf="@id/constraint"/>
 
                 <TextView
                         android:text="Dhruv Garg"
@@ -53,58 +58,51 @@
                         android:layout_marginTop="8dp"
                         android:textColor="@color/white"/>
 
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.cardview.widget.CardView
-                    android:id="@+id/card_view"
+            <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    app:cardCornerRadius="4dp"
-                    app:layout_constraintTop_toBottomOf="@+id/constraint"
-                    app:layout_constraintBottom_toBottomOf="@+id/constraint"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginEnd="32dp"
-                    app:layout_constraintStart_toStartOf="parent">
+                    android:layout_gravity="bottom">
 
                 <com.google.android.material.tabs.TabLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:id="@+id/tabLayout"
-                        android:padding="8dp"
-                        app:tabIndicatorHeight="0dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent">
+                        android:background="@color/blue"
+                        app:tabTextColor="@color/white"
+                        app:tabIndicatorColor="@color/white"
+                        app:tabIndicatorFullWidth="false"
+                        app:tabIndicatorHeight="4dp"
+                        app:tabSelectedTextColor="@drawable/tab_select_color"
+                        android:layout_height="?attr/actionBarSize"
+                        app:layout_collapseMode="pin"
+                        app:popupTheme="@style/AppTheme.PopupOverlay">
 
                 </com.google.android.material.tabs.TabLayout>
-            </androidx.cardview.widget.CardView>
 
-            <View
-                    android:background="@color/grayLight"
-                    android:layout_width="1dp"
-                    android:layout_height="0dp"
-                    android:elevation="2dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/card_view"
-                    app:layout_constraintTop_toTopOf="@+id/card_view"
-                    app:layout_constraintEnd_toEndOf="@+id/card_view"
-                    app:layout_constraintStart_toStartOf="@+id/card_view"/>
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
 
-            <androidx.core.widget.NestedScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fillViewport="true"
-                    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    <androidx.core.widget.NestedScrollView
+            android:fillViewport="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-                <androidx.viewpager.widget.ViewPager
-                        android:id="@+id/viewpager"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-                </androidx.viewpager.widget.ViewPager>
-            </androidx.core.widget.NestedScrollView>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.viewpager.widget.ViewPager>
+
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
