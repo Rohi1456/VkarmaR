@@ -16,10 +16,11 @@
             android:label="Homework"
             tools:layout="@layout/fragment_teacher_homework"/>
     <fragment
-            android:id="@+id/myClass"
-            android:name="com.vkarmaedu.vkarma.fragment.MyClassFragment"
-            android:label="My Class"
-            tools:layout="@layout/fragment_my_class"/>
+            android:id="@+id/resultUpload"
+            android:name="com.vkarmaedu.vkarma.fragment.TeacherResultsFragment"
+            android:label="fragment_result_upload"
+            tools:layout="@layout/fragment_result_upload"/>
+ 
     <fragment
             android:id="@+id/teacherProfile"
             android:name="com.vkarmaedu.vkarma.fragment.TeacherProfileFragment"
@@ -30,5 +31,9 @@
             android:name="com.vkarmaedu.vkarma.fragment.ChatChannelFragment"
             android:label="Vkarma Chat"
             tools:layout="@layout/fragment_chat_channel"/>
+
+
+
+
 
 </navigation>

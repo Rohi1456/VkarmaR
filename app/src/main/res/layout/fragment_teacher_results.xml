@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_30sdp"
+>
+    <TextView
+            android:id="@+id/testNameTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:text="Unit Test -1"
+            android:textSize="@dimen/_13sdp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+    />
+    <TextView
+            android:id="@+id/setTotalTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:text="Set Totsl Marks"
+            android:textSize="@dimen/_13sdp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:background="@drawable/round_corners_rect_purple"
+            android:layout_toLeftOf="@id/testNameTV"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:padding="@dimen/_5sdp"
+    />
+
+    <LinearLayout
+                  android:id="@+id/hll"
+                  android:layout_below="@id/testNameTV"
+                  android:layout_width="match_parent"
+                  android:layout_height="@dimen/_35sdp"
+                  android:orientation="horizontal"
+                  android:layout_marginTop="@dimen/_20sdp"
+                  android:weightSum="4">
+        <TextView
+                android:id="@+id/idTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Roll No"
+                android:padding="@dimen/_10sdp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+        />
+        <View android:layout_width="1dp"
+              android:layout_height="wrap_content"
+              android:background="@color/grayLight"/>
+        <TextView
+                android:id="@+id/nameTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/_3sdp"
+                android:text="Name"
+                android:padding="@dimen/_10sdp"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+        <View android:layout_width="1dp"
+              android:layout_height="wrap_content"
+              android:background="@color/grayLight"/>
+        <TextView
+                android:id="@+id/marksTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/_3sdp"
+                android:text="Marks"
+                android:padding="@dimen/_10sdp"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+        <View android:layout_width="1dp"
+              android:layout_height="wrap_content"
+              android:background="@color/grayLight"/>
+        <TextView
+                android:id="@+id/totalTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/_3sdp"
+                android:text="Total"
+                android:padding="@dimen/_10sdp"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+    </LinearLayout>
+    <View
+            android:id="@+id/viewLine"
+            android:layout_below="@id/hll"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grayLight"/>
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/uploadResultsRV"
+            android:layout_below="@id/viewLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/list_teacher_results"
+
+    />
+</RelativeLayout>
