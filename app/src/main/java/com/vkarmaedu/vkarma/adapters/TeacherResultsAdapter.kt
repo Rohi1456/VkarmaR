@@ -1,6 +1,5 @@
 package com.vkarmaedu.vkarma.adapters
 
-import android.content.Context
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +9,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.vkarmaedu.vkarma.R
 import com.vkarmaedu.vkarma.dataModels.TeacherResult
-import com.vkarmaedu.vkarma.fragment.TeacherAttendanceFragment
 import com.vkarmaedu.vkarma.fragment.TeacherResultsFragment
 import kotlinx.android.synthetic.main.list_teacher_results.view.*
 
