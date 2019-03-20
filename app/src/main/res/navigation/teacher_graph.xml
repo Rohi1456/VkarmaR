@@ -18,8 +18,11 @@
             tools:layout="@layout/fragment_teacher_homework"/>
     <fragment
             android:id="@+id/resultUpload"
-            android:name="com.vkarmaedu.vkarma.fragment.ResultUploadFragment"
+            android:name="com.vkarmaedu.vkarma.fragment.TeacherResultsFragment"
             android:label="fragment_result_upload"
             tools:layout="@layout/fragment_result_upload"/>
+
+
+
 
 </navigation>
