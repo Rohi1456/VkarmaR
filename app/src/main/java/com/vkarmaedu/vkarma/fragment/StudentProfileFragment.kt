@@ -24,9 +24,14 @@ class StudentProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_student_profile, container, false)
-        activity?.let {
-            root.viewpager.adapter = StudentProfilePagerAdapter(it.supportFragmentManager)
+
+        if (arguments != null){
+//            root.viewpager.adapter = activity?.supportFragmentManager?.let { TeacherStudentPageAdapter(it) }
         }
+        else{
+            root.viewpager.adapter = activity?.supportFragmentManager?.let { StudentProfilePagerAdapter(it) }
+        }
+
 
         root.tabLayout.setupWithViewPager(root.viewpager)
         return root

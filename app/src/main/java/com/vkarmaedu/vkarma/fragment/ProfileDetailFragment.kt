@@ -18,11 +18,7 @@ class ProfileDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_profile_detail, container, false)
-        try {
-            viewModel.getStudentDetail()
-        }catch (e : Exception){
 
-        }
         return root
     }
 

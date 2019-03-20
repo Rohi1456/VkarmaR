@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.vkarmaedu.vkarma.R
 import com.vkarmaedu.vkarma.adapters.ChatChannelAdapter
 import com.vkarmaedu.vkarma.dataModels.ChatChannel
+import com.vkarmaedu.vkarma.utility.MESSAGE_CHANNEL_kEY
 import com.vkarmaedu.vkarma.utility.replaceFragmentAddToBackStack
 import kotlinx.android.synthetic.main.fragment_attendance_list.view.*
 
@@ -44,9 +45,5 @@ class ChatChannelFragment : Fragment(), ChatChannelAdapter.OnItemClickListener {
         bundle.putString(MESSAGE_CHANNEL_kEY, chatChannel.channelKey)
         fragment.arguments = bundle
         replaceFragmentAddToBackStack(activity, fragment)
-    }
-
-    companion object {
-        private const val MESSAGE_CHANNEL_kEY = "messageChannelKey"
     }
 }

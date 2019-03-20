@@ -18,6 +18,7 @@ import com.vkarmaedu.vkarma.R
 import com.vkarmaedu.vkarma.adapters.MessageAdapter
 import com.vkarmaedu.vkarma.data.Message
 import com.vkarmaedu.vkarma.data.UserRepo
+import com.vkarmaedu.vkarma.utility.MESSAGE_CHANNEL_kEY
 import com.vkarmaedu.vkarma.viewModel.ChatViewModel
 import com.vkarmaedu.vkarma.viewModel.ChatViewModelFactory
 import kotlinx.android.synthetic.main.fragment_chat.view.*
@@ -112,6 +113,5 @@ class ChatFragment : Fragment() {
     companion object {
         private const val PICK_IMAGE = 1
         private const val TAG = "ChatFragment"
-        private const val MESSAGE_CHANNEL_kEY = "messageChannelKey"
     }
 }

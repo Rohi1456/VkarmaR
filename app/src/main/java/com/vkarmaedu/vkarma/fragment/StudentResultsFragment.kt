@@ -36,6 +36,10 @@ class StudentResultsFragment : Fragment(), StudentResultAdapter.OnItemClickListe
         }
         myAdapter.updateData(list)
 
+        root.compare.setOnClickListener {
+            replaceFragmentAddToBackStack(activity, CompareResultFragment())
+        }
+
         return root
     }
 

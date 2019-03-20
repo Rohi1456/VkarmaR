@@ -8,11 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.vkarmaedu.vkarma.R
 import com.vkarmaedu.vkarma.adapters.TestAdapter
-import com.vkarmaedu.vkarma.dataModels.Results
-import com.vkarmaedu.vkarma.utility.popBackStack
-import kotlinx.android.synthetic.main.fragment_result_detail.view.*
+import kotlinx.android.synthetic.main.fragment_compare_result.view.*
 
-class ResultDetailFragment : Fragment() {
+class CompareResultFragment : Fragment() {
 
     private val myAdapter = TestAdapter()
 
@@ -20,22 +18,15 @@ class ResultDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_result_detail, container, false)
-        root.recycler_view.apply{
+        val root = inflater.inflate(R.layout.fragment_compare_result, container, false)
+
+        root.recycler_view.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = myAdapter
         }
 
-        root.toolbar.setNavigationOnClickListener {
-            popBackStack(activity)
-        }
-
-        val list = ArrayList<Results>()
-        for (i in 0..6){
-            list.add(Results("Test Name 1", "Physics", 25, 20))
-        }
-        myAdapter.updateData(list)
 
         return root
     }
+
 }

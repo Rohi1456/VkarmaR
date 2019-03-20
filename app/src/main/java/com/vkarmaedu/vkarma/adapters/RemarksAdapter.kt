@@ -33,6 +33,7 @@ class RemarksAdapter(private val listener : OnItemClickListener) : RecyclerView.
 
     fun updateData(list : List<Remarks>){
         this.list = list
+        notifyDataSetChanged()
     }
 
     public interface OnItemClickListener {

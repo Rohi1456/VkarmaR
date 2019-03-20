@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-            android:id="@+id/homework"
-            android:title="Homework"
-            android:icon="@drawable/ic_person"/>
-
-    <item
             android:id="@+id/attendance"
             android:title="Attendance"
             android:icon="@drawable/ic_person"/>
 
     <item
-            android:id="@+id/profile"
+            android:id="@+id/homework"
+            android:title="Homework"
+            android:icon="@drawable/ic_person"/>
+
+    <item
+            android:id="@+id/teacherProfile"
             android:title="Profile"
             android:icon="@drawable/ic_person"/>
 
     <item
-            android:id="@+id/resultUpload"
-            android:title="result"
+            android:id="@+id/myClass"
+            android:title="MyClass"
             android:icon="@drawable/ic_person"/>
 
     <item

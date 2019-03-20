@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.vkarmaedu.vkarma.R
 import com.vkarmaedu.vkarma.data.UserRepo
 import com.vkarmaedu.vkarma.dataModels.Homework
+import com.vkarmaedu.vkarma.utility.showSnack
 import com.vkarmaedu.vkarma.viewModel.NewHomeworkViewModel
 import kotlinx.android.synthetic.main.fragment_new_homework.view.*
 
@@ -46,8 +47,8 @@ class NewHomeworkFragment : Fragment() {
                 root.editText.text.toString(),
                 ""
             )
+            if(homework.text.isEmpty()) showSnack(this.requireView(), "Empty homework not allowed.")
             viewModel.insertFirebase(homework)
-
         }
         return root
     }

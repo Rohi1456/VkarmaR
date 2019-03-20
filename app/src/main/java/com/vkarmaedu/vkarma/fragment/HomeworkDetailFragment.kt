@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.storage.FirebaseStorage
 import com.vkarmaedu.vkarma.R
 import com.vkarmaedu.vkarma.dataModels.Homework
+import com.vkarmaedu.vkarma.utility.HOMEwORK_KEY
 import com.vkarmaedu.vkarma.utility.dateFormat
 import com.vkarmaedu.vkarma.utility.showSnack
 import kotlinx.android.synthetic.main.fragment_homework_detail.view.*
@@ -83,7 +84,6 @@ class HomeworkDetailFragment : Fragment() {
     }
 
     companion object {
-        private const val HOMEwORK_KEY = "homework_key"
         private const val REQUEST_WRITE_STORAGE_PERMISSION = 4
     }
 }

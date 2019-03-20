@@ -37,5 +37,6 @@ class TestAdapter : RecyclerView.Adapter<TestAdapter.MyViewHolder>() {
 
     fun updateData(list : List<Results>){
         this.list = list
+        notifyDataSetChanged()
     }
 }
